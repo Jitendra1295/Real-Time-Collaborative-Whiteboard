@@ -3,14 +3,16 @@
 import React, { useRef, useState, useLayoutEffect, useEffect } from 'react';
 import { Stage, Layer, Line, Text } from 'react-konva';
 import { useUser } from '../../context/UserContext';
-import { roomDataChange } from "../../utils/action"
+import { roomDataChange, saveFeedback } from "../../utils/action"
 import { useRouter } from 'next/navigation'
+import { toast, ToastContainer } from "react-toastify";
 
 
 const Whiteboard = () => {
     const [color, setColor] = useState('#000000');
     const [history, setHistory] = useState([]);
     const [tool, setTool] = useState('pen');
+    const [feedback, setFeedback] = useState("");
     const [strokeWidth, setStrokeWidth] = useState(5);
     const [lines, setLines] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -49,6 +51,11 @@ const Whiteboard = () => {
     const clearCanvas = () => {
         setLines([]);
     };
+    const handleSaveFeedback = async () => {
+        const added = await saveFeedback(user?._id, feedback)
+        console.log("addedadded", added);
+        return toast.dark(" Feedback added!");
+    }
     const logOut = async () => {
         const data = {
             status: "inactive"
@@ -101,6 +108,7 @@ const Whiteboard = () => {
             <div className="container-fluid" style={{
                 display: 'flex', flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: "60px"
             }}>
+                <ToastContainer />
                 <div className="row">
                     <h1 className="display-5 pt-4 pb-3 text-center" >
                         Watcher: {user?.userName}
@@ -109,12 +117,32 @@ const Whiteboard = () => {
                 <div style={{ width: "70%", height: "80vh", backgroundColor: "#ffffff" }}>
                     <img src={img} style={{ height: window.innerHeight, width: "100%" }} alt="real time whiteboard image" />
                 </div>
-            </div>
+                <div style={{ width: "40%", marginTop: "20px", }}>
+                    <form>
+                        <div data-mdb-input-init className="form-outline mb-4">
+                            <label className="form-label" htmlFor="form2Example17"> Add Feedback</label>
+                            <textarea
+                                className="form-control"
+                                rows="4"
+                                value={feedback}
+                                onChange={(e) => { setFeedback(e.target.value) }}
+                            />
+                            <input
+                                type="button"
+                                className="btn btn-primary mt-3"
+                                value={"Save"}
+                                onClick={() => { handleSaveFeedback() }}
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div >
         )
     }
 
     return (
         <div className="container-fluid" style={{ backgroundColor: "#ffffff", color: "#000000" }}    >
+            <ToastContainer />
             <div className="row">
                 <h1 className="display-5 pt-4 pb-3 text-center">
                     Presenter: {user.name}

@@ -5,19 +5,23 @@ import { useState } from 'react';
 import { registerUser } from '../../utils/action';
 import { setAuthToken } from '../../utils/auth';
 import { useRouter } from 'next/navigation'
+import { useUser } from '../../context/UserContext';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { setUser } = useUser();
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const token = await registerUser(username, email, password);
-        console.log("handleSubmit::", username, password, token);
-        setAuthToken(token)
-        router.push("/room");
+        const data = await registerUser(username, email, password);
+        if (data?.token) {
+            setAuthToken(data.token);
+            setUser(data.user);
+            router.push('/room');
+        }
 
     };
 
@@ -45,7 +49,7 @@ const Login = () => {
                                     </div>
 
                                     <div className="pt-1 mb-4">
-                                        <button data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-lg btn-block" type="button">Sign Up</button>
+                                        <button data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
                                     </div>
 
                                     <a className="small text-muted" href="#!">Forgot password?</a>
@@ -56,8 +60,8 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 

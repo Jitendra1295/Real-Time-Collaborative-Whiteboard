@@ -41,7 +41,26 @@ export const registerUser = async (name, email, password) => {
         return null;
     }
 };
-
+export const saveFeedback = async (userId, feedback) => {
+    try {
+        const token = await getAuthToken()
+        console.log("saveFeedback::1", userId, feedback)
+        const response = await fetch(`${BASE_URL}/room/feedback`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ userId, feedback }),
+        });
+        const data = await response.json();
+        console.log("saveFeedback::2", data)
+        return data;
+    } catch (error) {
+        console.error('Error registering user:', error.message);
+        return null;
+    }
+};
 export const roomDataChange = async (data, id) => {
     try {
         const token = await getAuthToken()

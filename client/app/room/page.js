@@ -81,6 +81,7 @@ const JoinCreateRoom = ({ }) => {
 
         if (room) {
             setUser({
+                ...user,
                 roomId: joinRoomId,
                 userId: user?._id,
                 userName: joinName,

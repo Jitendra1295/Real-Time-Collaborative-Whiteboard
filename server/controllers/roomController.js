@@ -1,5 +1,5 @@
 const Room = require('../model/room');
-
+const Feedback = require("../model/feedback")
 
 async function addRoom(id, username, room) {
     const data = {
@@ -54,9 +54,27 @@ async function getActiveRoom(req, res) {
     }
 }
 
+async function addFeedback(req, res) {
+    const { userId, feedback } = req.body;
+    const data = {
+        userId, feedbackText: feedback
+    };
+    console.log("addFeedback ::", userId, feedback);
+
+    try {
+        const addFeedback = new Feedback(data);
+        await addFeedback.save();
+        console.log("addFeedback ::", addFeedback);
+        return res.status(200).json(addFeedback);
+    } catch (error) {
+        throw error;
+    }
+}
+
 
 module.exports = {
     addRoom,
     update,
-    getActiveRoom
+    getActiveRoom,
+    addFeedback
 };

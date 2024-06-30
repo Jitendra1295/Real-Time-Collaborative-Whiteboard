@@ -6,7 +6,7 @@ import { setAuthToken } from '../../utils/auth';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
 import { useUser } from '../../context/UserContext';
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Login = () => {
 

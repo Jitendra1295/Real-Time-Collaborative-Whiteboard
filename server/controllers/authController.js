@@ -78,7 +78,7 @@ async function register(req, res) {
 
         jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
             if (err) throw err;
-            res.json({ token });
+            res.json({ token: token, user: user });
         });
 
     } catch (error) {
