@@ -25,6 +25,10 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/room', roomRoutes);
 
+app.get('/', (req, resp) => {
+    resp.send("Real-Time Collaborative Whiteboard")
+});
+
 let imageUrl, userRoom;
 const server = app.listen(
     PORT,
