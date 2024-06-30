@@ -1,0 +1,28 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "canvas": "^2.11.2",
+    "konva": "^9.3.12",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18",
+    "react-konva": "^18.2.10",
+    "react-toastify": "^10.0.5",
+    "socket.io-client": "^4.7.5",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4"
+  }
+}
