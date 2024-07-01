@@ -58,7 +58,7 @@ const Login = () => {
                                     </div>
 
                                     <a className="small text-muted" href="#!">Forgot password?</a>
-                                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>{"Don't have an account?"} <a href="/signup"
+                                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>Dont have an account? <a href="/signup"
                                         className="text-primary">Register here</a></p>
                                 </form>
                             </div>
