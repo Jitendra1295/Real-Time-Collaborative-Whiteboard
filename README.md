@@ -32,16 +32,21 @@ This project is a real-time collaborative whiteboard application built using Nex
    git clone https://github.com/yourusername/real-time-collaborative-whiteboard.git
    cd real-time-collaborative-whiteboard
    
+
+
 ## Set up your .env file:
 
-Create a .env file in the root directory of your project and add the following environment variables:
+1. **Create a .env file in the root directory of your project and add the following environment variables::**
 
-PORT=8000
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
+   ```bash
+  PORT=8000
+  MONGODB_URI=your_mongodb_uri
+  JWT_SECRET=your_jwt_secret
+
+
 
 ## Start the development server
-note:This will start the Next.js development server
+note: This will start the Next.js development server
 
 cd client 
 npm i
