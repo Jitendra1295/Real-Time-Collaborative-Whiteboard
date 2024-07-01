@@ -49,13 +49,14 @@ This project is a real-time collaborative whiteboard application built using Nex
 ## Start the development server
 note: This will start the Next.js development server
 
-cd client 
-npm i
-npm run dev
+```bash
+   cd client 
+   npm i
+   npm run dev
 
-cd server
-npm i 
-nodemon index.js
+   cd server
+   npm i 
+   nodemon index.js
 
 
 
