@@ -7,7 +7,7 @@ This project is a real-time collaborative whiteboard application built using Nex
 ## Features
 
 - Real-time drawing and text editing
-- User authentication (sign up, login)
+- User authentication (sign up, log in)
 - Join rooms to collaborate with others
 - Server-side rendering with Next.js
 - WebSocket integration for real-time updates
