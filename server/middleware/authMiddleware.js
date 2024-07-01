@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || "qwertyuiop";
 
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];

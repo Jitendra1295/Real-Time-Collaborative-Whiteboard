@@ -12,7 +12,9 @@ const app = express();
 app.use(cors())
 const PORT = process.env.PORT || 8000;
 
-mongoose.connect(process.env.MONGODB_URI).then(() => {
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/whiteboard";
+
+mongoose.connect(mongoURI).then(() => {
     console.log('Connected to MongoDB');
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error.message);
