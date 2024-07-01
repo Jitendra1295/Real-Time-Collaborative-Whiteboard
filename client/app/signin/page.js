@@ -1,4 +1,5 @@
 // src/app/login/page.js
+
 "use client";
 
 import { loginUser } from '../../utils/action';
@@ -28,11 +29,13 @@ const Login = () => {
                 return toast.dark("Login fail!");
             }
         } catch (error) {
+            console.error("Error during login:", error);
+            toast.error("Failed to login. Please try again.");
         }
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center  vh-100">
+        <div className="container d-flex justify-content-center align-items-center vh-100">
             <section className="text-center" style={{ width: "70%" }}>
                 <div className="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary">
                     <div className="card-body py-5 px-md-5">
@@ -58,7 +61,7 @@ const Login = () => {
                                     </div>
 
                                     <a className="small text-muted" href="#!">Forgot password?</a>
-                                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>Don't have an account? <a href="/signup"
+                                    <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>Don&apos;t have an account? <a href="/signup"
                                         className="text-primary">Register here</a></p>
                                 </form>
                             </div>
@@ -67,8 +70,6 @@ const Login = () => {
                 </div>
             </section>
         </div>
-
-
     );
 };
 
