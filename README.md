@@ -39,9 +39,10 @@ This project is a real-time collaborative whiteboard application built using Nex
 1. **Create a .env file in the root directory of your project and add the following environment variables::**
 
    ```bash
-  PORT=8000
-  MONGODB_URI=your_mongodb_uri
-  JWT_SECRET=your_jwt_secret
+   PORT=8000
+   MONGODB_URI=your_mongodb_uri
+   JWT_SECRET=your_jwt_secret
+  
 
 
 
