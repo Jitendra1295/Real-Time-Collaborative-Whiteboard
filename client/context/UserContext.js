@@ -15,7 +15,6 @@ export const UserProvider = ({ children }) => {
             timeout: 10000,
             transports: ["websocket"],
         };
-
         const socket = io(server, connectionOptions);
         setSocket(socket);
 
